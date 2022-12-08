@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>car and bike rental</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+   :root{
+    --green:#17A589 ;
+    --black:#130f40;
+    --light-color:#1C2833 ;
+    --dark:#E5E8E8;
+    --white:#fff;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+    --border:.2rem solid rgba(0,0,0,.1);
+    --outline:.1rem solid rgba(5, 223, 194, 0.849);
+    --outline-hover:.2rem solid var(--green);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+}
+
+body{
+    background:#eee;
+}
+
+section{
+    padding:2rem 9%;
+}
+
+.heading{
+    text-align: center;
+    padding:2rem 0;
+    padding-bottom: 3rem;
+    font-size: 3.5rem;
+    color:var(--black);
+}
+
+.heading span{
+    color: var(--green);
+    
+    display: inline-block;
+    padding:.5rem 3rem;
+    
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.8rem 3rem;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    border:.2rem solid var(--black);
+    color:var(--green);
+    cursor: pointer;
+    background: none;
+}
+
+.btn:hover{
+    background: var(--black);
+    color:#fff;
+}
+
+.header{
+    position: fixed;
+    top:0; left:0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:2rem 9%;
+    background:#fff;
+    box-shadow: var(--box-shadow);
+}
+
+.header .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color:var(--green);
+}
+
+.header .logo i{
+    color:var(--green);
+}
+
+.header .navbar a{
+    font-size: 1.7rem;
+    margin:0 1rem;
+    color:var(--black);
+}
+
+.header .navbar a:hover{
+    color:var(--green);
+}
+
+.header .icons div{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    color:var(--green);
+    font-size: 2rem;
+    margin-left: .3rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.header .icons div:hover{
+    background: var(--green);
+    color:#fff;
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top:110%; right:-110%;
+    width: 50rem;
+    height:5rem;
+    background: #fff;
+    border-radius: .5rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+
+.header .search-form.active{
+    right:2rem;
+    transition: .4s linear;
+}
+
+.header .search-form input{
+    height:100%;
+    width:100%;
+    background: none;
+    text-transform: none;
+    font-size: 1.6rem;
+    color:var(--black);
+    padding:0 1.5rem;
+}
+
+.header .search-form label{
+    font-size: 2.2rem;
+    padding-right: 1.5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+.header .search-form label:hover{
+    color:var(--green);
+}  
+
+.header .login-form{
+    position: absolute;
+    top:110%; right: -110%;
+    width: 35rem;
+    box-shadow: var(--box-shadow);
+    padding:2rem;
+    border-radius: .5rem;
+    background: #fff;
+    text-align: center;
+}
+.header .login-form.active{
+    right: 2rem;
+    text-transform: uppercase;
+    color: var(--black);
+}
+.header .login-form .box{
+    width: 100%;
+    margin: .7rem 0;
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color:var(--black);
+    text-transform: none;
+}
+.header .login-form p{
+    font-size: 1.4rem;
+    padding: .5rem 0;
+    color: var(--light-color);
+}
+.header .login-form p a {
+    color: var(--green);
+    text-decoration: underline;
+}
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(file:///C:/Users/HP/OneDrive/Pictures/swift-exterior-front-view.webp) no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 17rem;
+    padding-bottom: 10rem;
+}
+.home .content{
+    text-align: center;
+    width: 60rem;
+}
+.home .content h3{
+    color: var(--white);
+    font-size: 3rem;
+    text-shadow: #666;
+}
+.home .content h3 span{
+    color:var(--green);
+}
+.home .content p{
+    color: var(--white);
+    font-size: 1.7rem;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+
+
+.categories .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 1.5rem;
+}
+.categories .box-container .box{
+    padding: 3rem 2rem;
+    border-radius: .5rem;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    outline: var(--outline);
+    outline-offset: -1rem;
+    text-align: center;
+}
+
+.categories .box-container .box:hover{
+    background: var(--dark);
+    outline-offset: 0rem;
+}
+
+.categories .box-container .box img{
+    margin: 1rem 0;
+    height: 15rem;
+
+}
+.categories .box-container .box h3{
+    font-size: 2rem;
+    color:var(--black);
+    line-height: 1.8;
+}
+.categories .box-container .box p{
+    font-size: 1.7rem;
+    color:var(--light-color);
+    line-height: 1.8;
+    padding: 1rem;
+}
+.footer {
+    background:aqua;
+}
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+.footer .box-container .box h3{
+    font-size: 3.5rem;
+    color: var(--black);
+    padding: 1rem 0;
+}
+.footer .box-container .box h3 i{
+    color:var(--green);
+}
+.footer .box-container .box .links{
+    display: block;
+    font-size: 1.5rem;
+    color:var(--light-color);
+    padding:1rem 0;
+}
+.footer .box-container .box .links i{
+    color: var(--green);
+    padding-right: .5rem;
+}
+.footer .box-container .box .links:hover i{
+    padding-right: 2rem;
+}
+.footer .box-container .box p{
+    line-height: 1.8;
+    font-size: 1.5rem;
+    color:var(--light-color);
+    padding: 1rem 0;
+}
+.footer .box-container .box  .share a{
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+    border-radius: .5rem;
+    font-size:2rem;
+    color: var(--black);
+    margin-right: .2rem;
+    background: #eee;
+    text-align: center;
+}
+.footer .box-container .box  .share a:hover{
+    background: var(--green);
+    color: #fff;
+}
+.footer .box-container .box .email{
+    width: 100%;
+    margin: .7rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    background: #eee;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.sectionid{
+    width: 100%;
+    margin: .7rem;
+    padding: 1rem;
+    border-radius: .5rem;
+    background: #eee;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+}
+.form{
+    
+    font-size: 7rem;
+    color: var(--black);
+   
+    box-sizing: border-box;
+    
+}
+input[type=text]{
+            margin: 10px 10px 10px;
+            width: 50%;
+            padding:12px;
+            border: 1px solid black;
+        
+        }
+select{
+    padding: 3rem 2rem;
+    margin: 10px 10px 10px;
+    background:aqua;
+    
+   
+    text-align: center;
+}
+
+
+
+</style>
+  
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo"> <i class="fas fa-car"></i> Vecal </a>
+    
+    <nav class="navbar">
+        <a href="#home">home</a>
+        
+        
+        <a href="#categories">categories</a>
+        
+        
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-car" id="cart-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+    </div>
+
+    <form action="" class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </form>
+
+   
+            </header>
+            <section class="home" id="home">
+
+                <div class="content">
+                    <h3>we've got all <span>great</span> models for your</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore nisi.</p>
+                    <a href="#" class="btn">Hire now</a>
+                </div>
+            
+            </section>
+            <label for ="pick"><h1>pick upp address:-</lebel>
+                <input type="text" name="Pick upp address" placeholder="Pick upp address">
+                        <input placeholder="mm/dd/yy" name="cars_pickup_date" class="date-pickup input_date_box hasDatepicker" type="text" tabindex="4" id="dp1668774480164"></h1>
+                    </input>
+                </div>
+                    <label for ="pick"><h1>Pick upp address:-</lebel>
+                        <input type="text" name="Pick upp address" placeholder="Pick upp address"></input>
+                            <input placeholder="mm/dd/yy" name="cars_dropoff_date" class="date-dropoff input_date_box hasDatepicker" type="text" tabindex="6" id="dp1668774480165"></h1>
+                        </div>   
+                    <div class="second-col no-title">
+                        <select name="cars_pickup_time" class="select-pickup-time select_box" tabindex="5">
+                            <option value="0">12:00 AM</option>
+                            <option value="1">1:00 AM</option>
+                            <option value="2">2:00 AM</option>
+                            <option value="3">3:00 AM</option>
+                            <option value="4">4:00 AM</option>
+                            <option value="5">5:00 AM</option>
+                            <option value="6">6:00 AM</option>
+                            <option value="7">7:00 AM</option>
+                            <option value="8">8:00 AM</option>
+                            <option value="9">9:00 AM</option>
+                            <option value="10">10:00 AM</option>
+                            <option value="11">11:00 AM</option>
+                            <option selected="" value="12">12:00 PM</option>
+                            <option value="13">1:00 PM</option>
+                            <option value="14">2:00 PM</option>
+                            <option value="15">3:00 PM</option>
+                            <option value="16">4:00 PM</option>
+                            <option value="17">5:00 PM</option>
+                            <option value="18">6:00 PM</option>
+                            <option value="19">7:00 PM</option>
+                            <option value="20">8:00 PM</option>
+                            <option value="21">9:00 PM</option>
+                            <option value="22">10:00 PM</option>
+                            <option value="23">11:00 PM</option>                    
+                        </select>
+                    </div>
+                </div>   	
+                 				        
+                    <div class="second-col no-title">
+                        <select name="cars_dropoff_time" class="select-dropoff-time select_box" tabindex="7">        					
+                            <option value="0">12:00 AM</option>
+                            <option value="1">1:00 AM</option>
+                            <option value="2">2:00 AM</option>
+                            <option value="3">3:00 AM</option>
+                            <option value="4">4:00 AM</option>
+                            <option value="5">5:00 AM</option>
+                            <option value="6">6:00 AM</option>
+                            <option value="7">7:00 AM</option>
+                            <option value="8">8:00 AM</option>
+                            <option value="9">9:00 AM</option>
+                            <option value="10">10:00 AM</option>
+                            <option value="11">11:00 AM</option>
+                            <option selected="" value="12">12:00 PM</option>
+                            <option value="13">1:00 PM</option>
+                            <option value="14">2:00 PM</option>
+                            <option value="15">3:00 PM</option>
+                            <option value="16">4:00 PM</option>
+                            <option value="17">5:00 PM</option>
+                            <option value="18">6:00 PM</option>
+                            <option value="19">7:00 PM</option>
+                            <option value="20">8:00 PM</option>
+                            <option value="21">9:00 PM</option>
+                            <option value="22">10:00 PM</option>
+                            <option value="23">11:00 PM</option>        
+                        </select>
+                    </div>
+                </div>
+                <div class="clear"></div>    			
+            </div>
+           
+
+        
+       
+        <select name="bike and scooter" id="bike and scooter">
+            <option value="no bike">select bike and scooter(rs-300-1500/day)</option>
+            <option value="Royal Enfield classic">R.E classic350</option>
+            <option value="KTM125">KTM125</option>
+            <option value="Honda activa">Honda activa</option>
+            <option value="apprila">apprila scooter</option>
+            <option value="Yamaha R15">Yamaha R15</option>
+            <option value="jawa42 2.1">jawa 42 2.1</option>
+       
+
+
+        </select><br>
+        <select name="car" id="car">
+            <option value="no car">select car(rs-1500-3000/day)</option>
+            <option value="ertica">ertica</option>
+            <option value="scorpio">scorpio</option>
+            <option value="swift">swift</option>
+            <option value="bmw">bmw</option>
+            <option value="thar">thar</option>
+            <option value="beleno">beleno</option>
+        </select>
+    </div>
+    <div class="js-surcharge-note surcharge-note hide">
+        <h1>Please note: Some cars have a surcharge for drivers under 25 (or above 65). Once you have searched, please read the terms of your chosen car.</h1>
+        </div>
+<!--Categories section starts here..-->
+<section class="categories" id="categories">
+    <h1 class="heading"><span>Categories</span></h1>
+    <div class="box-container">
+
+        <div class="box">
+            <img src="C:\Users\HP\OneDrive\Pictures\DSC_4256_800x534-800x445.jpg" alt="">
+            <h3>A Weak</h3>
+            <p>upto 45%</p>
+            <a href="#" class="btn">Hire Now</a>
+        </div>
+        <div class="box">
+            <img src="C:\Users\HP\OneDrive\Pictures\Saved Pictures\audi.jpg" alt="">
+            <h3>Five Day</h3>
+            <p>upto 40%</p>
+            <a href="#" class="btn">Hire Now</a>
+        </div>
+        <div class="box">
+            <img src="C:\Users\HP\OneDrive\Pictures\BMW-330i-M-Sport-2.jpg" alt="">
+            <h3>Two Day</h3>
+            <p>upto 20%</p>
+            <a href="#" class="btn">Hire Now</a>
+        </div>
+
+    </div>
+</section>
+
+
+<!--footer section starts here..-->
+
+<section class="footer">
+<div class="box-container">
+    <div class="box">
+        <h3>Vecal <i class="fas fa-car"></i></h3>
+        
+        <div class="share">
+            <a href="https://www.facebook.com/subhayan.patra.9" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="https://www.instagram.com/subhayan.patra.since2002/" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+        </div>
+    </div>
+
+    <div class="box">
+        <h3>Contact info</h3>
+        <a href="#" class="links"> <i class="fas fa-phone">+917602256039</i></a>
+        <a href="#" class="links"> <i class="fas fa-envelope">subhayanpatra801@gmail.com</i></a>
+                                     
+        <a href="#" class="links"> <i class="fas fa-map-marker-alt">Phagwara</i></a>
+    </div>
+
+    <div class="box">
+        <h3>Quick Links</h3>
+        <a href="#" class="links"> <i class="fas fa-arrow-right">Home</i></a>
+      
+        <a href="#" class="links"> <i class="fas fa-arrow-right">categories</i></a>
+        
+    </div>
+
+    <div class="box">
+        <h3>Newsletter</h3>
+       <p>Subscribe for the latest updates</p>
+       <input type="email" class="email" placeholder="your email">
+       <input type="submit" class="btn" value="Subscribe">
+       
+    </div>
+
+</div>
+</section>
+</form>
+</body>
+</html>
